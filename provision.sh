@@ -4,7 +4,7 @@
 # It is used to install a few things such as Docker or OpenSSH.
 
 apt-get update
-apt-get install -q -y openssh-server
+DEBIAN_FRONTEND=noninteractive apt-get install -q -y libgmp10 libpq5 openssh-server
 
 # Allow to ssh into the VM.
 mkdir /home/horde/.ssh
@@ -22,8 +22,18 @@ echo deb https://get.docker.com/ubuntu docker main > /etc/apt/sources.list.d/doc
 apt-get update
 DEBIAN_FRONTEND=noninteractive apt-get install -q -y lxc-docker-1.3.3
 
+usermod -aG docker horde
+
+edit-sudoers.sh
+
 # Install `brctl` command.
 apt-get install -q -y bridge-utils
 
 # Install Tinc. The /etc/tinc directory was copied by late_command.
 apt-get install -q -y tinc
+
+echo "10.0.1.21	vm-1" >> /etc/hosts
+echo "10.0.1.22	vm-2" >> /etc/hosts
+echo "10.0.1.23	vm-3" >> /etc/hosts
+echo "10.0.1.24	vm-4" >> /etc/hosts
+echo "10.0.1.25	vm-5" >> /etc/hosts
