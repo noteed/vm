@@ -10,6 +10,7 @@ sudo ip link set br0 up
 sudo route add -net 10.0.1.0 netmask 255.255.255.0 dev br0
 
 # Serve IP addresses on br0, should be done once too.
+docker rm dnsmasq_for_kvm
 docker run -d \
   --name dnsmasq_for_kvm \
   -v $(pwd):/source --privileged --net host \
