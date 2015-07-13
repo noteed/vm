@@ -1,0 +1,4 @@
+#! /bin/bash
+
+setup-docker-tinc.sh > /tmp/setup-docker-tinc.log 2>&1
+exit 0

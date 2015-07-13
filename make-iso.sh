@@ -94,13 +94,14 @@ cd $tmp/iso_new
 echo en > $tmp/iso_new/isolinux/lang
 
 # set late command
-late_command="cp /cdrom/provision.sh /target/usr/bin/ ; cp /cdrom/edit-sudoers.sh /target/usr/bin/ ; cp -a /cdrom/etc-tinc /target/etc/tinc ; cp /cdrom/setup-docker-tinc.sh /target/usr/bin/ ; in-target /usr/bin/provision.sh ; rm /target/usr/bin/provision.sh ; rm /target/usr/bin/edit-sudoers.sh"
+late_command="cp /cdrom/provision.sh /target/usr/bin/ ; cp /cdrom/edit-sudoers.sh /target/usr/bin/ ; cp -a /cdrom/etc-tinc /target/etc/tinc ; cp /cdrom/setup-docker-tinc.sh /target/usr/bin/ ; cp /cdrom/rc-local /target/etc/rc.local ; in-target /usr/bin/provision.sh ; rm /target/usr/bin/provision.sh ; rm /target/usr/bin/edit-sudoers.sh"
 
 # copy the seed file to the iso
 cp $tmp/seed.seed $tmp/iso_new/preseed/
 cp $tmp/provision.sh $tmp/iso_new/
 cp $tmp/edit-sudoers.sh $tmp/iso_new/
 cp $tmp/setup-docker-tinc.sh $tmp/iso_new/
+cp $tmp/rc-local $tmp/iso_new/
 cp -a $tmp/etc-tinc $tmp/iso_new/etc-tinc
 
 # include firstrun script

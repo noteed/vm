@@ -11,7 +11,8 @@ The first script is based on: https://github.com/netson/ubuntu-unattended.
 
 The resulting image is already provisioned with Docker and Tinc. It also
 contains a script to configure Docker and Tinc in such a way that containers
-running on multiple VMs can talk to each others.
+running on multiple VMs can talk to each others. That script is run
+automatically when the VM boots (it's called from `rc.local`).
 
 ## Build the VM iso and image
 
@@ -33,8 +34,4 @@ Then (in different terminals):
 
 The `run-kvm.sh` script will run a VM in snapshot mode, i.e. changes will be
 lost and the image left unaltered. In addition, simply rebooting will cause
-`kvm` to exit.
-
-## Run containers
-
-Within a VM, run `setup-docker-tinc.sh` before launching containers.
+`kvm` to exit. You can login using "horde" / "horde" directly or through SSH.
