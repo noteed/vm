@@ -18,11 +18,18 @@ automatically when the VM boots (it's called from `rc.local`).
 
     make
 
+This downloads `ubuntu-14.04.2-server-amd64.iso`, creates a custom
+`ubuntu-14.04.2-server-amd64-unattended.iso` and run kvm to create
+`ubuntu-14.04.2-server-amd64.img`.
+
 ## Run a brigde and some VMs
 
-Once:
+Run this command once:
 
     ./run-bridge.sh
+
+This creates a bridge called `br0` used by VMs to talk to each other. A
+`dnsmasq` container is run to serve IPs to those VMs.
 
 Then (in different terminals):
 
@@ -32,6 +39,7 @@ Then (in different terminals):
     ./run-kvm.sh 4
     ./run-kvm.sh 5
 
-The `run-kvm.sh` script will run a VM in snapshot mode, i.e. changes will be
+The `run-kvm.sh` script will run a VM using the
+`ubuntu-14.04.2-server-amd64.img` image in snapshot mode, i.e. changes will be
 lost and the image left unaltered. In addition, simply rebooting will cause
 `kvm` to exit. You can login using "horde" / "horde" directly or through SSH.
