@@ -33,13 +33,13 @@ This creates a bridge called `br0` used by VMs to talk to each other. A
 
 Then (in different terminals):
 
-    ./run-kvm.sh 1
-    ./run-kvm.sh 2
-    ./run-kvm.sh 3
-    ./run-kvm.sh 4
-    ./run-kvm.sh 5
+    ./run-bridged-kvm.sh 1
+    ./run-bridged-kvm.sh 2
+    ./run-bridged-kvm.sh 3
+    ./run-bridged-kvm.sh 4
+    ./run-bridged-kvm.sh 5
 
-The `run-kvm.sh` script will run a VM using the
+The `run-bridged-kvm.sh` script will run a VM using the
 `ubuntu-14.04.2-server-amd64.img` image in snapshot mode, i.e. changes will be
 lost and the image left unaltered. In addition, simply rebooting will cause
 `kvm` to exit. You can login using "horde" / "horde" directly or through SSH.
