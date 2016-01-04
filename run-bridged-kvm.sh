@@ -18,7 +18,7 @@ kvm \
   -m 256 \
   -device e1000,netdev=net0,mac=${MAC} \
   -netdev tap,id=net0,ifname=${TAP},script=no \
-  -boot d ubuntu-14.04.2-server-amd64.img
+  -boot d ubuntu-14.04.3-server-amd64.img
 
 
 sudo brctl delif br0 ${TAP}

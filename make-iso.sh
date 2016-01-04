@@ -4,13 +4,13 @@
 # Based on https://github.com/netson/ubuntu-unattended.
 
 # Place to store the final iso file, a.k.a. this directory.
-tmp="/home/thu/projects/vm"
+tmp="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 hostname="ubuntu"
 domain="ubuntu"
 
-download_file="ubuntu-14.04.2-server-amd64.iso"           # filename of the iso to be downloaded
+download_file="ubuntu-14.04.3-server-amd64.iso"           # filename of the iso to be downloaded
 download_location="http://releases.ubuntu.com/14.04/"     # location of the file to be downloaded
-new_iso_name="ubuntu-14.04.2-server-amd64-unattended.iso" # filename of the new iso file to be created
+new_iso_name="ubuntu-14.04.3-server-amd64-unattended.iso" # filename of the new iso file to be created
 
 timezone="UTC"
 username="horde"

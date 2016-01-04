@@ -21,9 +21,9 @@ automatically when the VM boots (it's called from `rc.local`).
 > make
 ```
 
-This downloads `ubuntu-14.04.2-server-amd64.iso`, creates a custom
-`ubuntu-14.04.2-server-amd64-unattended.iso` and run kvm to create
-`ubuntu-14.04.2-server-amd64.img`.
+This downloads `ubuntu-14.04.3-server-amd64.iso`, creates a custom
+`ubuntu-14.04.3-server-amd64-unattended.iso` and run kvm to create
+`ubuntu-14.04.3-server-amd64.img`.
 
 
 ## Run a brigde and some VMs
@@ -48,7 +48,7 @@ Then (in different terminals):
 ```
 
 The `run-bridged-kvm.sh` script will run a VM using the
-`ubuntu-14.04.2-server-amd64.img` image in snapshot mode, i.e. changes will be
+`ubuntu-14.04.3-server-amd64.img` image in snapshot mode, i.e. changes will be
 lost and the image left unaltered. In addition, simply rebooting will cause
 `kvm` to exit. You can login using "horde" / "horde" directly or through SSH.
 
