@@ -1,5 +1,19 @@
 #! /bin/bash
 
+DEVICE=$(sudo blkid -L CONFIGDISK)
+
+if [ -n "${DEVICE}" ] ; then
+  sudo mkdir -p /media/config
+  sudo mount ${DEVICE} /media/config
+  if [ -f /media/config/setup.sh ] ; then
+    cd /media/config/
+    sh setup.sh
+  fi
+  exit 0
+fi
+
+# TODO The rest of the script should be provided by the config disk.
+
 # Bridge the Docker subnet to the Tinc VPN.
 # This can be run at VM startup time.
 

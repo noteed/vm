@@ -14,6 +14,7 @@ contains a script to configure Docker and Tinc in such a way that containers
 running on multiple VMs can talk to each others. That script is run
 automatically when the VM boots (it's called from `rc.local`).
 
+
 ## Build the VM iso and image
 
 ```
@@ -23,6 +24,7 @@ automatically when the VM boots (it's called from `rc.local`).
 This downloads `ubuntu-14.04.2-server-amd64.iso`, creates a custom
 `ubuntu-14.04.2-server-amd64-unattended.iso` and run kvm to create
 `ubuntu-14.04.2-server-amd64.img`.
+
 
 ## Run a brigde and some VMs
 
@@ -50,6 +52,7 @@ The `run-bridged-kvm.sh` script will run a VM using the
 lost and the image left unaltered. In addition, simply rebooting will cause
 `kvm` to exit. You can login using "horde" / "horde" directly or through SSH.
 
+
 ## Run a (lonely) VM
 
 ```
@@ -69,4 +72,19 @@ it becomes easy to SSH into the VM:
 
 ```
 > ssh vm-1
+```
+
+
+# Configuration data (for the lonely VM)
+
+A configuration disk with a `setup.sh` script can be provided to the VM. If
+this is the case, the script will be run from its directory. The label of the
+disk must be `CONFIGDISK`.
+
+To create a, say 2MB, vfat disk and populate it with the desired data:
+
+```
+truncate -s 2M config-disk.img
+mkfs.vfat -n CONFIGDISK config-disk.img
+mcopy -oi config-disk.img file-0.txt file-1.txt ... ::
 ```
